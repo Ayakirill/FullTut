@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullTut - Видео платформа</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .header {
+            background-color: #222;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+        }
+        .logo span {
+            color: #ff007f;
+            font-size: 35px;
+            margin-left: 10px;
+        }
+        .tiktok-button {
+            background-color: #ff0050;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .tiktok-button:hover {
+            background-color: #e00045;
+        }
+       
+       
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 5px;
+            gap: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border: 1px solid #ff007f;
+            border-radius: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+           color: #cf0469;
+            border-radius: 10px;
+            border: 1px solid #ff007f;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar {
+            width: 300px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ff007f;
+            outline: none;
+            font-size: 16px;
+            padding-left: 40px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .video-item {
+            background:  #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .video-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .video-item video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .video-title {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .video-meta {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #888;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="logo">Full<span>Tut</span></div>
+        <a href="https://www.tiktok.com/@fulltut1" class="tiktok-button" target="_blank">Мой TikTok</a>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            #GoogleAdSense - Здесь вставить код рекламы
+        </div>
+        <div class="content">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Поиск видео..." onkeyup="searchVideos()">
+            </div>
+            <div class="video-grid" id="videoGrid">
+                <div class="video-item" data-title="many summers later гравити фолз">
+                    <video controls><source src="video1.mp4" type="video/mp4"></video>
+                    <div class="video-title">Many Summers Later Гравити Фолз</div>
+                    <div class="video-meta">1.2M просмотров</div>
+                </div>
+                <div class="video-item" data-title="магический трах юджи итадори и нобары кугисаки">
+                    <video controls><source src="video2.mp4" type="video/mp4"></video>
+                    <div class="video-title">Магический трах Юджи Итадори и Нобары Кугисаки</div>
+                    <div class="video-meta">850K просмотров</div>
+                </div>
+                <div class="video-item" data-title="мамочка из суперсемейки">
+                    <video controls><source src="video3.mp4" type="video/mp4"></video>
+                    <div class="video-title">Мамочка из Суперсемейки</div>
+                    <div class="video-meta">950K просмотров</div>
+                </div>
+                <div class="video-item" data-title="нами и луффи ван пис">
+                    <video controls><source src="video4.mp4" type="video/mp4"></video>
+                    <div class="video-title">Нами и Луффи Ван пис</div>
+                    <div class="video-meta">720K просмотров</div>
+                </div>
+                <div class="video-item" data-title="хентай человек бензопила макима">
+                    <video controls><source src="video5.mp4" type="video/mp4"></video>
+                    <div class="video-title">Хентай Человек Бензопила Макима</div>
+                    <div class="video-meta">1.1M просмотров</div>
+                </div>
+                <div class="video-item" data-title="рободевочка анимация 18+">
+                    <video controls><source src="video6.mp4" type="video/mp4"></video>
+                    <div class="video-title">РобоДевочка анимация 18+</div>
+                    <div class="video-meta">690K просмотров</div>
+                </div>
+            </div>
+            <div class="no-results" id="noResults">Ничего не найдено</div>
+        </div>
+    </div>
+</body>
+</html>
